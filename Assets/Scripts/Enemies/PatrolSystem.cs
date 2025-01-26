@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
-
+/// <summary>
+/// A system that handles patrol logic for AI agents, allowing them to move between predefined waypoints.
+/// Author: ChatGPT
+/// </summary>
 public class PatrolSystem
 {
     /// <summary>

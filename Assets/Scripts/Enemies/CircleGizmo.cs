@@ -1,12 +1,15 @@
 using UnityEngine;
-
+/// <summary>
+/// A component that draws a circle gizmo in the Scene view for visualization purposes.
+/// Author: ChatGPT
+/// </summary>
 public class CircleGizmo : MonoBehaviour
 {
     [SerializeField] private EnemyStateHandler enemy;
-    public Vector3 position; // Centro del círculo
-    public float radius; // Radio máximo
-    public int segments = 50; // Número de segmentos para el círculo (más segmentos = círculo más suave)
-    public Color gizmoColor = Color.red; // Color del Gizmo
+    public Vector3 position;
+    public float radius; 
+    public int segments = 50;
+    public Color gizmoColor = Color.red; 
 
     private void OnDrawGizmos()
     {
@@ -24,17 +27,17 @@ public class CircleGizmo : MonoBehaviour
     /// <param name="segments">El número de segmentos para el círculo.</param>
     private void DrawCircle(Vector3 center, float radius, int segments)
     {
-        float angleStep = 360f / segments; // Ángulo entre puntos
+        float angleStep = 360f / segments; 
 
-        Vector3 prevPoint = center + new Vector3(radius, 0, 0); // Primer punto del círculo
+        Vector3 prevPoint = center + new Vector3(radius, 0, 0); 
 
         for (int i = 1; i <= segments; i++)
         {
-            float angle = i * angleStep * Mathf.Deg2Rad; // Convertir a radianes
+            float angle = i * angleStep * Mathf.Deg2Rad; 
             Vector3 newPoint = center + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
 
-            Gizmos.DrawLine(prevPoint, newPoint); // Dibujar línea entre puntos
-            prevPoint = newPoint; // Actualizar el punto anterior
+            Gizmos.DrawLine(prevPoint, newPoint); 
+            prevPoint = newPoint; 
         }
     }
 }
