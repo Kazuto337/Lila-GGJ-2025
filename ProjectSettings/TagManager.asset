@@ -7,6 +7,14 @@ TagManager:
   - Enemy
   - Obstacle
   - Ground
+  - Heal
+  - Spring
+  - Projectile
+  - Destroyable
+  - Bubble
+  - EnemyWeakness
+  - WinCollider
+  - DeathBoundary
   layers:
   - Default
   - TransparentFX

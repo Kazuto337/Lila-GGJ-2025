@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -46,6 +47,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Player Stats")]
     [SerializeField] private PlayerStats playerStats;
+    private bool isHealing;
+    private bool receivingDamage;
+
+    [Header("Brush Selector")]
+    [SerializeField] private BrushSelector brushSelector;
+
+    public UnityEvent onBoundaryCollision;
 
     public List<BubbleType> UnlockedBubbles { get => unlockedBubbles; }
 
@@ -59,6 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         LockCursor();
 
+        brushSelector.DesactivateCurrentBubbleImage();
         controller = gameObject.GetComponent<CharacterController>();
         cameraTransmform = Camera.main.transform;
     }
@@ -80,6 +89,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (unlockedBubbles.Count == 0)
         {
+            brushSelector.DesactivateCurrentBubbleImage();
             return;
         }
 
@@ -89,6 +99,7 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
+        brushSelector.ActivateCurrentBubbleImage();
         Bubble newBubble = null;
 
         switch (selectedBubble)
@@ -221,7 +232,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void SelectBubble(int valueIndex)
     {
-        if (unlockedBubbles.Count == 0)
+        if (unlockedBubbles.Count <= 1)
         {
             return;
         }
@@ -231,6 +242,8 @@ public class PlayerBehaviour : MonoBehaviour
         if (selectedBubbleIndex == 0) selectedBubbleIndex = Math.Abs(valueIndex + selectedBubbleIndex);
 
         selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
+
+        brushSelector.ChangeCurrentBrush(selectedBubble);
     }
 
     public void UnlockBubble(BubbleType newBubble)
@@ -239,6 +252,7 @@ public class PlayerBehaviour : MonoBehaviour
         selectedBubbleIndex = unlockedBubbles.Count;
 
         selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
+        brushSelector.ChangeCurrentBrush(selectedBubble);
     }
 
     public void UnlockCursor()
@@ -268,16 +282,84 @@ public class PlayerBehaviour : MonoBehaviour
             StartCoroutine(Bounce());
         }
 
-        if (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Projectile"))
+        if (hit.gameObject.CompareTag("Projectile"))
         {
-            playerStats.TakeDamage(1);
+            Destroy(hit.gameObject);
+            StartCoroutine(DamagePlayer());
         }
 
-        if (hit.gameObject.CompareTag("Heal"))
+        if (hit.gameObject.CompareTag("Enemy"))
         {
-            playerStats.Heal(1);
-            Destroy(hit.gameObject);
+            float offset = controller.height * 0.75f;
+
+            float enemyHeight = hit.transform.position.y;
+            float myHeight = transform.position.y;
+
+            if (enemyHeight + offset < myHeight)
+            {
+                Destroy(hit.gameObject);
+                playerStats.CollectCoin(5);
+            }
+            else
+            {
+                StartCoroutine(DamagePlayer());
+            }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bubble"))
+        {
+
+            BubbleType type = other.GetComponent<UnlockBubble>().bubbleType;
+            UnlockBubble(type);
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("Heal"))
+        {
+            if (other.CompareTag("Heal"))
+            {
+                playerStats.Heal(1);
+                Destroy(other.gameObject);
+
+                StartCoroutine(HealPlayer());
+            }
+        }
+    }
+
+    private IEnumerator DamagePlayer()
+    {
+        if (receivingDamage)
+        {
+            yield break;
+        }
+        receivingDamage = true;
+
+        yield return null;
+        playerStats.TakeDamage(1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        receivingDamage = false;
+    }
+    private IEnumerator HealPlayer()
+    {
+        if (isHealing)
+        {
+            yield break;
+        }
+
+        isHealing = true;
+
+        yield return null;
+        playerStats.Heal(1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        receivingDamage = false;
     }
 
     private void OnDisable()

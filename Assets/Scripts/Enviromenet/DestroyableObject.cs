@@ -19,8 +19,9 @@ public class DestroyableObject : BubbleInteractable
 
     public override void ApplyEffect(EffectType effect)
     {
-        if (effect != EffectType.Destroy)
+        if (effect == EffectType.Destroy)
         {
+            Destroy(gameObject);
             return;
         }
     }
