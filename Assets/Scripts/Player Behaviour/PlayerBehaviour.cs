@@ -30,6 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Brush Attributes")]
     [SerializeField] private bool isLocking;
+    [SerializeField] private Transform bubbleSpawnerTransform;
     [SerializeField] private Transform lockedTransform;
     [SerializeField] BubbleType selectedBubble;
     [SerializeField] private int selectedBubbleIndex;
@@ -71,13 +72,32 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
+        if (unlockedBubbles.Count == 0)
+        {
+            return;
+        }
+
         if (isLocking)
         {
             FireLocking(lockedTransform);
             return;
         }
 
-        Bubble newBubble = Instantiate(bubbleGumPrefab).GetComponent<Bubble>();
+        Bubble newBubble = null;
+
+        switch (selectedBubble)
+        {
+            case BubbleType.Regular:
+                newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
+                break;
+            case BubbleType.Gum:
+                newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
+                newBubble.FireBubble(GetFloorPosition());
+                return;
+            case BubbleType.Explosive:
+                newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
+                break;
+        }
 
         newBubble.FireBubble(transform.forward);
     }
@@ -85,6 +105,19 @@ public class PlayerBehaviour : MonoBehaviour
     private void FireLocking(Transform lockedObject)
     {
 
+    }
+
+    private Vector3 GetFloorPosition()
+    {
+        RaycastHit hit;
+        Vector3 origin = transform.position - new Vector3(0, controller.height / 2, 0);
+
+        if (Physics.Raycast(origin, transform.position - new Vector3(0, controller.height / 2, 0), out hit))
+        {
+            return hit.transform.position;
+        }
+
+        return new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     private void Move()
@@ -135,12 +168,23 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    public void Bounce(float bounceForce)
+    {
+        playerVelocity.y += Mathf.Sqrt(jumpHeight * -2 * gravityValue * bounceForce);
+        controller.Move(playerVelocity * Time.deltaTime);
+    }
+
     private void CheckInventoryInput()
     {
         bool previous = previousBubble.action.triggered;
         bool next = nextBubble.action.triggered;
 
         if (previous && next)
+        {
+            return;
+        }
+
+        if (!previous && !next)
         {
             return;
         }
@@ -161,7 +205,9 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
-        selectedBubbleIndex = (selectedBubbleIndex % unlockedBubbles.Count) + valueIndex;
+        selectedBubbleIndex = Math.Abs((selectedBubbleIndex % unlockedBubbles.Count) + valueIndex);
+
+        if (selectedBubbleIndex == 0) selectedBubbleIndex += valueIndex;
 
         selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
     }
@@ -195,11 +241,10 @@ public class PlayerBehaviour : MonoBehaviour
         movementAction.action.Disable();
         jumpAction.action.Disable();
     }
-
-    public enum BubbleType
-    {
-        Regular,
-        Explosive,
-        Gum
-    }
+}
+public enum BubbleType
+{
+    Regular,
+    Gum,
+    Explosive
 }

@@ -6,18 +6,18 @@ public abstract class Bubble : MonoBehaviour
 {
     [SerializeField] protected float speed;
     [SerializeField] protected float lifeTime;
-    [SerializeField] protected Rigidbody _rigidbody;
+    [SerializeField] protected Rigidbody mRigidbody;
     [SerializeField] protected Collider effectCollider;
-
-    [SerializeField] protected UnityEvent<Bubble> onBubbleDisabled;
+    [SerializeField] protected MeshRenderer meshRenderer;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        mRigidbody = GetComponent<Rigidbody>();
     }
-    public virtual void FireBubble(Vector3 targetPosition)
+
+    public virtual void FireBubble(Vector3 targetDirections)
     {
-        StartCoroutine(MoveTowards(targetPosition));
+        StartCoroutine(MoveForward(targetDirections));
     }
 
     protected virtual void ApplyEffect(BubbleInteractable interactableObject)
@@ -28,18 +28,21 @@ public abstract class Bubble : MonoBehaviour
 
     protected virtual void DesactivateBubble()
     {
-        onBubbleDisabled.Invoke(this);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     protected virtual void ActivatePoping()
     {
         //animates poping
+        meshRenderer.enabled = false;
+
         Debug.Log("Bubble Popped!");
     }
 
-    protected virtual IEnumerator MoveTowards(Vector3 targetPosition)
+    protected virtual IEnumerator MoveForward(Vector3 targetDirection)
     {
+        Debug.Log(targetDirection);
+
         float t = 0;
 
         while (t < lifeTime)
@@ -48,10 +51,8 @@ public abstract class Bubble : MonoBehaviour
 
             yield return null;
 
-            _rigidbody.linearVelocity = targetPosition.normalized * speed * Time.deltaTime;
+            mRigidbody.MovePosition(transform.position + (targetDirection * Time.deltaTime * speed));
         }
-
-        StartCoroutine(TimeBeforeDisabling());
     }
 
     protected virtual IEnumerator TimeBeforeDisabling()
@@ -67,6 +68,7 @@ public abstract class Bubble : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<BubbleInteractable>(out BubbleInteractable interactable))
         {
+            Debug.Log("Bubble Interactable Found");
             ApplyEffect(interactable);
             return;
         }
