@@ -44,6 +44,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] GameObject explosiveBubblePrefab;
     [SerializeField] GameObject bubbleGumPrefab;
 
+    [Header("Player Stats")]
+    [SerializeField] private PlayerStats playerStats;
+
     public List<BubbleType> UnlockedBubbles { get => unlockedBubbles; }
 
     private void OnEnable()
@@ -263,6 +266,17 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Destroy(hit.gameObject);
             StartCoroutine(Bounce());
+        }
+
+        if (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Projectile"))
+        {
+            playerStats.TakeDamage(1);
+        }
+
+        if (hit.gameObject.CompareTag("Heal"))
+        {
+            playerStats.Heal(1);
+            Destroy(hit.gameObject);
         }
     }
 
