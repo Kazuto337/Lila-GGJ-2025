@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Destroyable
   - Obstacle
   - Ground
-  - Spring
   layers:
   - Default
   - TransparentFX
