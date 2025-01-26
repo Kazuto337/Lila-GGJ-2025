@@ -35,6 +35,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] BubbleType selectedBubble;
     [SerializeField] private int selectedBubbleIndex;
     [SerializeField] List<BubbleType> unlockedBubbles;
+    [SerializeField] LayerMask groundRaycastLayer;
+
+    private bool isBouncing;
 
     [Header("Bubble Prefabs")]
     [SerializeField] GameObject regularBubblePrefab;
@@ -110,14 +113,17 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector3 GetFloorPosition()
     {
         RaycastHit hit;
+
         Vector3 origin = transform.position - new Vector3(0, controller.height / 2, 0);
 
-        if (Physics.Raycast(origin, transform.position - new Vector3(0, controller.height / 2, 0), out hit))
+        float raycastMaxDistance = 100f;
+
+        if (Physics.Raycast(origin, Vector3.down, out hit, raycastMaxDistance, groundRaycastLayer))
         {
-            return hit.transform.position;
+            return hit.point;
         }
 
-        return new Vector3(transform.position.x, 0, transform.position.z);
+        return transform.up * -1;
     }
 
     private void Move()
@@ -168,10 +174,22 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    public void Bounce(float bounceForce)
+    public IEnumerator Bounce()
     {
-        playerVelocity.y += Mathf.Sqrt(jumpHeight * -2 * gravityValue * bounceForce);
+        if (isBouncing)
+        {
+            yield break;
+        }
+
+
+        isBouncing = true;
+
+        yield return new WaitForSeconds(0.05f);
+        Debug.Log("Boing");
+        playerVelocity.y += Mathf.Sqrt(jumpHeight + 4 * -2 * gravityValue);
         controller.Move(playerVelocity * Time.deltaTime);
+
+        isBouncing = false;
     }
 
     private void CheckInventoryInput()
@@ -191,14 +209,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (previous)
         {
-            SelectBrush(-1);
+            SelectBubble(-1);
             return;
         }
 
-        SelectBrush(1);
+        SelectBubble(1);
     }
 
-    private void SelectBrush(int valueIndex)
+    private void SelectBubble(int valueIndex)
     {
         if (unlockedBubbles.Count == 0)
         {
@@ -207,7 +225,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         selectedBubbleIndex = Math.Abs((selectedBubbleIndex % unlockedBubbles.Count) + valueIndex);
 
-        if (selectedBubbleIndex == 0) selectedBubbleIndex += valueIndex;
+        if (selectedBubbleIndex == 0) selectedBubbleIndex = Math.Abs(valueIndex + selectedBubbleIndex);
 
         selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
     }
@@ -215,6 +233,9 @@ public class PlayerBehaviour : MonoBehaviour
     public void UnlockBubble(BubbleType newBubble)
     {
         unlockedBubbles.Add(newBubble);
+        selectedBubbleIndex = unlockedBubbles.Count;
+
+        selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
     }
 
     public void UnlockCursor()
@@ -234,6 +255,15 @@ public class PlayerBehaviour : MonoBehaviour
         yield return new WaitForSeconds(secondJumpCooldown);
 
         canJump = true;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Spring"))
+        {
+            Destroy(hit.gameObject);
+            StartCoroutine(Bounce());
+        }
     }
 
     private void OnDisable()

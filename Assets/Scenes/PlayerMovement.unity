@@ -720,7 +720,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.5
+  m_Height: 2
   m_Radius: 0.52
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -756,10 +756,10 @@ MonoBehaviour:
   lockedTransform: {fileID: 0}
   selectedBubble: 0
   selectedBubbleIndex: 0
-  unlockedBubbles: 
+  unlockedBubbles: 000000000100000002000000
   regularBubblePrefab: {fileID: 1417837428464228460, guid: bd8e12d7d956f3f40ac204a9f578f80c, type: 3}
   explosiveBubblePrefab: {fileID: 1417837428464228460, guid: d0100556a22c11f4ebe3bd46e095f07e, type: 3}
-  bubbleGumPrefab: {fileID: 0}
+  bubbleGumPrefab: {fileID: 1417837428464228460, guid: 47552d29ea34891469123dc44f376dce, type: 3}
 --- !u!1 &985100811
 GameObject:
   m_ObjectHideFlags: 0

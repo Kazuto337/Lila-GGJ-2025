@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BubbleGumBehaviour : Bubble
 {
-    [SerializeField] private GumSpring spring;
+    [SerializeField] private GameObject springPrefab;
 
     public void ThrowBubble(Vector3 targetPosition)
     {
@@ -17,12 +17,13 @@ public class BubbleGumBehaviour : Bubble
     private void ActivateSpring()
     {
         effectCollider.enabled = false;
-        spring.gameObject.SetActive(true);
+        Instantiate(springPrefab , transform.position , transform.rotation);
+        StartCoroutine(TimeBeforeDisabling());
     }
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             effectCollider.enabled = false;
             meshRenderer.enabled = false;

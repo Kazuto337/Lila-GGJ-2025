@@ -17,8 +17,10 @@ public class ExplosiveBubble : Bubble
     private void ActivateExplosion()
     {
         effectCollider.enabled = false;
+        mRigidbody.Sleep();
         explosion.SetActive(true);
-        ActivatePoping();
+
+        StartCoroutine(TimeBeforeDisabling());
     }
 
     private void OnTriggerEnter(Collider other)
