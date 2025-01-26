@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ExplosiveBubble : Bubble
 {
-    [SerializeField] private Collider explosionCollider;
+    [SerializeField] private GameObject explosion;
     public void ThrowBubble(Vector3 targetPosition)
     {
         MoveForward(targetPosition);
@@ -17,7 +17,8 @@ public class ExplosiveBubble : Bubble
     private void ActivateExplosion()
     {
         effectCollider.enabled = false;
-        explosionCollider.enabled = true;
+        explosion.SetActive(true);
+        ActivatePoping();
     }
 
     private void OnTriggerEnter(Collider other)

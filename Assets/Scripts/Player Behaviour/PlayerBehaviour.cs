@@ -91,11 +91,11 @@ public class PlayerBehaviour : MonoBehaviour
                 newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
                 break;
             case BubbleType.Gum:
-                newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
+                newBubble = Instantiate(bubbleGumPrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
                 newBubble.FireBubble(GetFloorPosition());
                 return;
             case BubbleType.Explosive:
-                newBubble = Instantiate(regularBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
+                newBubble = Instantiate(explosiveBubblePrefab, bubbleSpawnerTransform.position, regularBubblePrefab.transform.rotation).GetComponent<Bubble>();
                 break;
         }
 

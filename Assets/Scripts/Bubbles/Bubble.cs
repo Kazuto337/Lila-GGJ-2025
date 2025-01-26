@@ -31,7 +31,7 @@ public abstract class Bubble : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void ActivatePoping()
+    public virtual void ActivatePoping()
     {
         //animates poping
         meshRenderer.enabled = false;
