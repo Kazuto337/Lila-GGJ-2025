@@ -13,26 +13,29 @@ public class ExplosiveBubble : Bubble
         interactableObject.ApplyEffect(EffectType.Stun);
         ActivateExplosion();
     }
+    public override void ActivatePoping()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void ActivateExplosion()
     {
-        effectCollider.enabled = false;
-        mRigidbody.Sleep();
-        explosion.SetActive(true);
-
         StartCoroutine(TimeBeforeDisabling());
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Enemy"))
+        Instantiate(explosion, transform.position, transform.rotation);
+        StartCoroutine(TimeBeforeDisabling());
+
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<BubbleInteractable>().ApplyEffect(EffectType.Stun);
+            collision.gameObject.GetComponent<BubbleInteractable>().ApplyEffect(EffectType.Stun);
         }
 
-        if (other.CompareTag("Destroyable"))
+        if (collision.gameObject.CompareTag("Destroyable"))
         {
-            other.GetComponent<BubbleInteractable>().ApplyEffect(EffectType.Destroy);
+            collision.gameObject.GetComponent<BubbleInteractable>().ApplyEffect(EffectType.Destroy);
         }
     }
 }

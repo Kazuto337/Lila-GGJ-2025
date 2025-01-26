@@ -6,14 +6,17 @@ TagManager:
   tags:
   - Enemy
   - Destroyable
+  - Obstacle
+  - Ground
+  - Spring
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

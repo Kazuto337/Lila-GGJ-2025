@@ -6,6 +6,7 @@ public abstract class Bubble : MonoBehaviour
 {
     [SerializeField] protected float speed;
     [SerializeField] protected float lifeTime;
+    [SerializeField] protected bool canMove;
     [SerializeField] protected Rigidbody mRigidbody;
     [SerializeField] protected Collider effectCollider;
     [SerializeField] protected MeshRenderer meshRenderer;
@@ -43,9 +44,10 @@ public abstract class Bubble : MonoBehaviour
     {
         Debug.Log(targetDirection);
 
+        canMove = true;
         float t = 0;
 
-        while (t < lifeTime)
+        while (t < lifeTime && canMove)
         {
             t += Time.deltaTime;
 
