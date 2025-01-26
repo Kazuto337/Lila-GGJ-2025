@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,9 +11,13 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Movement Properties")]
     [SerializeField] InputActionReference movementAction;
     [SerializeField] InputActionReference jumpAction;
+    [SerializeField] InputActionReference fireAction;
+    [SerializeField] InputActionReference nextBubble;
+    [SerializeField] InputActionReference previousBubble;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
+    private Transform cameraTransmform;
 
     [Header("Phisycs Attributes")]
     [SerializeField] private float playerSpeed = 2.0f;
@@ -21,7 +28,19 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private int jumpsAmount = 2;
     [SerializeField] private float secondJumpCooldown = 1;
 
-    private Transform cameraTransmform;
+    [Header("Brush Attributes")]
+    [SerializeField] private bool isLocking;
+    [SerializeField] private Transform lockedTransform;
+    [SerializeField] BubbleType selectedBubble;
+    [SerializeField] private int selectedBubbleIndex;
+    [SerializeField] List<BubbleType> unlockedBubbles;
+
+    [Header("Bubble Prefabs")]
+    [SerializeField] GameObject regularBubblePrefab;
+    [SerializeField] GameObject explosiveBubblePrefab;
+    [SerializeField] GameObject bubbleGumPrefab;
+
+    public List<BubbleType> UnlockedBubbles { get => unlockedBubbles; }
 
     private void OnEnable()
     {
@@ -40,9 +59,35 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         Move();
+        CheckInventoryInput();
+        Fire();
     }
 
-    public void Move()
+    [ContextMenu("Fire Bubble")]
+    private void Fire()
+    {
+        if (!fireAction.action.triggered)
+        {
+            return;
+        }
+
+        if (isLocking)
+        {
+            FireLocking(lockedTransform);
+            return;
+        }
+
+        Bubble newBubble = Instantiate(bubbleGumPrefab).GetComponent<Bubble>();
+
+        newBubble.FireBubble(transform.forward);
+    }
+
+    private void FireLocking(Transform lockedObject)
+    {
+
+    }
+
+    private void Move()
     {
         //Jump validation
         bool jumpCondition = jumpsAmount > 0 && canJump;
@@ -79,7 +124,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
 
             jumpsAmount--;
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * - 2 * gravityValue);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2 * gravityValue);
             controller.Move(playerVelocity * Time.deltaTime);
         }
 
@@ -88,6 +133,42 @@ public class PlayerBehaviour : MonoBehaviour
             playerVelocity.y += gravityValue * playerMass * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
         }
+    }
+
+    private void CheckInventoryInput()
+    {
+        bool previous = previousBubble.action.triggered;
+        bool next = nextBubble.action.triggered;
+
+        if (previous && next)
+        {
+            return;
+        }
+
+        if (previous)
+        {
+            SelectBrush(-1);
+            return;
+        }
+
+        SelectBrush(1);
+    }
+
+    private void SelectBrush(int valueIndex)
+    {
+        if (unlockedBubbles.Count == 0)
+        {
+            return;
+        }
+
+        selectedBubbleIndex = (selectedBubbleIndex % unlockedBubbles.Count) + valueIndex;
+
+        selectedBubble = unlockedBubbles[selectedBubbleIndex - 1];
+    }
+
+    public void UnlockBubble(BubbleType newBubble)
+    {
+        unlockedBubbles.Add(newBubble);
     }
 
     public void UnlockCursor()
@@ -113,5 +194,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         movementAction.action.Disable();
         jumpAction.action.Disable();
+    }
+
+    public enum BubbleType
+    {
+        Regular,
+        Explosive,
+        Gum
     }
 }

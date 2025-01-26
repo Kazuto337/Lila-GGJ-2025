@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FireBubble",
+                    "type": "Button",
+                    "id": "6e3379d4-0501-4f83-9c96-c322cbd04df7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Lock View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eec3cf6-a457-428a-a10c-4d3bc0d4a3c3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "FireBubble",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
