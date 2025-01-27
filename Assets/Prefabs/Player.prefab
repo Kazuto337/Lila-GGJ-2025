@@ -110,7 +110,7 @@ MonoBehaviour:
   fireAction: {fileID: 7656186181574747595, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   nextBubble: {fileID: 7476244043514120974, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   previousBubble: {fileID: 2411907206095950430, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  playerSpeed: 5
+  playerSpeed: 7
   playerMass: 1
   jumpHeight: 1.5
   gravityValue: -20
@@ -131,6 +131,9 @@ MonoBehaviour:
   bubbleGumPrefab: {fileID: 1417837428464228460, guid: 47552d29ea34891469123dc44f376dce, type: 3}
   playerStats: {fileID: -6679401032350741433}
   brushSelector: {fileID: 8839735140084711822}
+  onBoundaryCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-6679401032350741433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +152,9 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   coinsCollected: 0
+  onPlayerDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8839735140084711822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1557045669129460258}
   - component: {fileID: 4014289600006850792}
   - component: {fileID: 2972813273028511339}
+  - component: {fileID: 8438951459071067131}
   m_Layer: 8
   m_Name: EnemyMalpato
   m_TagString: Enemy
@@ -114,7 +115,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.5463028
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -240,6 +241,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!136 &8438951459071067131
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397874372673559363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7370632
+  m_Height: 2.54
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.43293673, z: -0.33000004}
 --- !u!1 &5276097109702644953
 GameObject:
   m_ObjectHideFlags: 0
