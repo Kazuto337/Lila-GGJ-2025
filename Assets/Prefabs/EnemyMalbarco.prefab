@@ -210,7 +210,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 3985086700933207964}
   player: {fileID: 0}
   projectileLaunchAngle: 90
-  ChargeSpeed: 450
+  threshold: 6
+  ChargeSpeed: 16
   ChargeStopDistance: 0.2
   pushForce: 20
   attackCooldown: 0.5
@@ -336,7 +337,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4096543105962441161
 MonoBehaviour:
