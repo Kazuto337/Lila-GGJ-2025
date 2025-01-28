@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-
     [Header("Movement Properties")]
     [SerializeField] InputActionReference movementAction;
     [SerializeField] InputActionReference jumpAction;
@@ -47,13 +46,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Player Stats")]
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private CheckpointSystem checkpointSystem;
     private bool isHealing;
+    private bool isCollectingCoin;
     private bool receivingDamage;
 
     [Header("Brush Selector")]
     [SerializeField] private BrushSelector brushSelector;
-
-    public UnityEvent onBoundaryCollision;
 
     public List<BubbleType> UnlockedBubbles { get => unlockedBubbles; }
 
@@ -61,6 +60,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         movementAction.action.Enable();
         jumpAction.action.Enable();
+
+        checkpointSystem.OnBoundaryFound.AddListener(playerStats.TakeDamage);
     }
 
     private void Start()
@@ -282,12 +283,6 @@ public class PlayerBehaviour : MonoBehaviour
             StartCoroutine(Bounce());
         }
 
-        if (hit.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(hit.gameObject);
-            StartCoroutine(DamagePlayer());
-        }
-
         if (hit.gameObject.CompareTag("Enemy"))
         {
             float offset = controller.height * 0.75f;
@@ -298,11 +293,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (enemyHeight + offset < myHeight)
             {
                 Destroy(hit.gameObject);
-                playerStats.CollectCoin(5);
-            }
-            else
-            {
-                StartCoroutine(DamagePlayer());
+                StartCoroutine(CollectCoin());
             }
         }
     }
@@ -328,22 +319,11 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(HealPlayer());
             }
         }
-    }
 
-    private IEnumerator DamagePlayer()
-    {
-        if (receivingDamage)
+        if (other.CompareTag("WinCollider"))
         {
-            yield break;
+            GameManager.instance.EndGame();
         }
-        receivingDamage = true;
-
-        yield return null;
-        playerStats.TakeDamage(1);
-
-        yield return new WaitForSeconds(0.5f);
-
-        receivingDamage = false;
     }
     private IEnumerator HealPlayer()
     {
@@ -359,7 +339,23 @@ public class PlayerBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        receivingDamage = false;
+        isHealing = false;
+    }
+    private IEnumerator CollectCoin()
+    {
+        if (isCollectingCoin)
+        {
+            yield break;
+        }
+
+        isCollectingCoin = true;
+
+        yield return null;
+        playerStats.CollectCoin(5);
+
+        yield return new WaitForSeconds(0.5f);
+
+        isCollectingCoin = false;
     }
 
     private void OnDisable()

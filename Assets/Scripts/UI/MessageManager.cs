@@ -10,7 +10,7 @@ public class MessageManager : MonoBehaviour
     {
         m_Text.text = message;
 
-        StartCoroutine(ResetTextBox(7));
+        StartCoroutine(ResetTextBox(4));
     }
 
     IEnumerator ResetTextBox(float duration)

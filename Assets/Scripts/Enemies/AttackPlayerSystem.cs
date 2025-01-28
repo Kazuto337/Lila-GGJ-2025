@@ -6,7 +6,7 @@ public class AttackPlayerSystem : MonoBehaviour
 {
     [SerializeField] EnemyStateHandler enemyStateHandler;
 
-    public Transform projectilePrefab;
+    public GameObject projectilePrefab;
     public Transform spawnPoint;
     public Transform player;
 
@@ -68,7 +68,7 @@ public class AttackPlayerSystem : MonoBehaviour
 
     private void LaunchProjectile()
     {
-        Transform projectile = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+        Transform projectile = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity).transform;
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {

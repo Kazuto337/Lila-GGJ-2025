@@ -15,6 +15,7 @@ TagManager:
   - EnemyWeakness
   - WinCollider
   - DeathBoundary
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -37,16 +38,13 @@ public class EnemyStateHandler : MonoBehaviour
 
     private bool isMoving = false;
     private bool isAttacking = false;
+    private bool dealingDamage;
 
     private void Awake()
     {
         mainPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
         chaseCollider = chasePlayerSystem.GetComponent<Collider>();
-    }
-    void Start()
-    {
-
     }
     private void OnEnable()
     {
@@ -119,9 +117,6 @@ public class EnemyStateHandler : MonoBehaviour
             }
 
         }
-
-
-
     }
     private void ChaseDetection()
     {
@@ -139,5 +134,38 @@ public class EnemyStateHandler : MonoBehaviour
         _agent.velocity = Vector3.zero;
 
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            StartCoroutine(DamagePlayer(playerStats));
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Player"))
+        {
+            PlayerStats playerStats = hit.gameObject.GetComponent<PlayerStats>();
+            StartCoroutine(DamagePlayer(playerStats));
+        }
+    }
+
+    private IEnumerator DamagePlayer(PlayerStats playerStats)
+    {
+        if (dealingDamage)
+        {
+            yield break;
+        }
+        dealingDamage = true;
+
+        yield return null;
+        playerStats.TakeDamage(1);
+
+        yield return new WaitForSeconds(1f);
+
+        dealingDamage = false;
+    }
 }

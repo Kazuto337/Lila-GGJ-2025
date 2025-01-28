@@ -160,7 +160,7 @@ MonoBehaviour:
   chasePlayerSystem: {fileID: 4096543105962441161}
   attackPlayerSystem: {fileID: 6883722490416737311}
   currentState: 0
-  typeEnemy: 0
+  typeEnemy: 1
   mainPosition: {x: 0, y: 0, z: 0}
   maxRadius: 6
 --- !u!114 &7271396077190979522
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStateHandler: {fileID: 5867646811985533034}
-  projectilePrefab: {fileID: 134541510367228443, guid: a5af202f5c7ca354d9db91776946d62d, type: 3}
+  projectilePrefab: {fileID: 1757970635289849453, guid: a5af202f5c7ca354d9db91776946d62d, type: 3}
   spawnPoint: {fileID: 3985086700933207964}
   player: {fileID: 0}
   projectileLaunchAngle: 45

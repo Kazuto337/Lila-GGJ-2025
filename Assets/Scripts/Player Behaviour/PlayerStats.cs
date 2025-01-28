@@ -54,12 +54,12 @@ public class PlayerStats : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        hearts[currentHealth].FillHeart();
+        hearts[currentHealth - 1].FillHeart();
     }
 
     public void CollectCoin(int amount)
     {
         coinsCollected += amount;
-        Debug.Log($"Monedas recolectadas: {coinsCollected}");
+        coins.text = coinsCollected.ToString();
     }
 }

@@ -54,7 +54,7 @@ public class ChasePlayerSystem : MonoBehaviour
             CalculateMovement();
 
             enemyStateHandler.OnChangeEnemyStatEvent?.Invoke(EnemyStat.chasePlayer);
-            this.GetComponent<Collider>().enabled = false;
+            //this.GetComponent<Collider>().enabled = false;
         }
     }
     private void OnTriggerExit(Collider other)

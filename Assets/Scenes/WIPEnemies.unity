@@ -2804,6 +2804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  fireAction: {fileID: 0}
+  nextBubble: {fileID: 0}
+  previousBubble: {fileID: 0}
   playerSpeed: 2
   playerMass: 0
   jumpHeight: 1
@@ -2811,6 +2814,21 @@ MonoBehaviour:
   canJump: 0
   jumpsAmount: 2
   secondJumpCooldown: 1
+  isLocking: 0
+  bubbleSpawnerTransform: {fileID: 0}
+  lockedTransform: {fileID: 0}
+  selectedBubble: 0
+  selectedBubbleIndex: 0
+  unlockedBubbles: 
+  groundRaycastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  regularBubblePrefab: {fileID: 0}
+  explosiveBubblePrefab: {fileID: 0}
+  bubbleGumPrefab: {fileID: 0}
+  playerStats: {fileID: 0}
+  checkpointSystem: {fileID: 0}
+  brushSelector: {fileID: 0}
 --- !u!1 &2056576182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +3013,10 @@ PrefabInstance:
     - target: {fileID: 3985086700933207964, guid: 007a94703a648004ea3e70b81b82bd25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867646811985533034, guid: 007a94703a648004ea3e70b81b82bd25, type: 3}
+      propertyPath: typeEnemy
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6118364580433414334, guid: 007a94703a648004ea3e70b81b82bd25, type: 3}
       propertyPath: m_Name

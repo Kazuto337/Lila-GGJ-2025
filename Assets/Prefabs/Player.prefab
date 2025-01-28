@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 3562746999337482779}
   - component: {fileID: -6679401032350741433}
   - component: {fileID: 8839735140084711822}
+  - component: {fileID: -8502366641137712238}
+  - component: {fileID: 3236641677876171723}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -112,7 +114,7 @@ MonoBehaviour:
   previousBubble: {fileID: 2411907206095950430, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   playerSpeed: 7
   playerMass: 1
-  jumpHeight: 1.5
+  jumpHeight: 2
   gravityValue: -20
   canJump: 0
   jumpsAmount: 2
@@ -130,10 +132,8 @@ MonoBehaviour:
   explosiveBubblePrefab: {fileID: 1417837428464228460, guid: d0100556a22c11f4ebe3bd46e095f07e, type: 3}
   bubbleGumPrefab: {fileID: 1417837428464228460, guid: 47552d29ea34891469123dc44f376dce, type: 3}
   playerStats: {fileID: -6679401032350741433}
+  checkpointSystem: {fileID: -8502366641137712238}
   brushSelector: {fileID: 8839735140084711822}
-  onBoundaryCollision:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &-6679401032350741433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +171,44 @@ MonoBehaviour:
   explosiveBubble: {fileID: 21300000, guid: 93ee7d7a2eaee3a42ae0e0878624d205, type: 3}
   bubbleGum: {fileID: 21300000, guid: ad4a6d86b919f864b8508a9e92dd5ec1, type: 3}
   currentBubble: {fileID: 0}
+--- !u!114 &-8502366641137712238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020373862169692195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9689b68d7a90d468b2c75555ee1051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onBoundaryFound:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!136 &3236641677876171723
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020373862169692195}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1866299122149242172
 PrefabInstance:
   m_ObjectHideFlags: 0

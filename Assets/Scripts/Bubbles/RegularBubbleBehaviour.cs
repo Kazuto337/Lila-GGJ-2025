@@ -20,8 +20,6 @@ public class RegularBubbleBehaviour : Bubble
 
         (interactableObject as DestroyableObject).DesactivateGravity();
 
-        transform.localScale = interactableObject.transform.localScale * 1.5f;
-
         StopCoroutine(MoveForward(transform.forward));
         mRigidbody.linearVelocity = Vector3.zero;
         canMove = false;
@@ -29,7 +27,7 @@ public class RegularBubbleBehaviour : Bubble
         mRigidbody.isKinematic = true;
 
         interactableObject.transform.SetParent(transform, false);
-        interactableObject.transform.localScale = Vector3.one;
+        interactableObject.transform.localScale = Vector3.one/2;
         interactableObject.transform.transform.localPosition = Vector3.zero;
 
         StartCoroutine(Levitate(interactableObject));
