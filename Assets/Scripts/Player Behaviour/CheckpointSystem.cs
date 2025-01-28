@@ -12,14 +12,9 @@ public class CheckpointSystem : MonoBehaviour
 
     public UnityEvent<int> OnBoundaryFound { get => onBoundaryFound;}
 
-    private void Start()
+    private void UpdateCheckpoint(Vector3 newCheckpointPosition)
     {
-        UpdateCheckpoint();
-    }
-
-    private void UpdateCheckpoint()
-    {
-        checkpointPosition = transform.position;
+        checkpointPosition = newCheckpointPosition;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +26,7 @@ public class CheckpointSystem : MonoBehaviour
 
         if (other.CompareTag("Checkpoint"))
         {
-            UpdateCheckpoint();
+            UpdateCheckpoint(other.transform.position);
             Destroy(other.gameObject);
         }
     }

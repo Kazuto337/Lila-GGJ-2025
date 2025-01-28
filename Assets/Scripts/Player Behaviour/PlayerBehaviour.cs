@@ -311,13 +311,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.CompareTag("Heal"))
         {
-            if (other.CompareTag("Heal"))
-            {
-                playerStats.Heal(1);
-                Destroy(other.gameObject);
+            Destroy(other.gameObject);
 
-                StartCoroutine(HealPlayer());
-            }
+            StartCoroutine(HealPlayer());
         }
 
         if (other.CompareTag("WinCollider"))
