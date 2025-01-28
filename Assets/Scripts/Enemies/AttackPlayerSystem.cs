@@ -12,6 +12,8 @@ public class AttackPlayerSystem : MonoBehaviour
 
 
     public float projectileLaunchAngle = 45f;
+    public float threshold = 6;
+    private bool isFarFromTarget = false;
 
 
     public float ChargeSpeed = 60f; 
@@ -40,6 +42,7 @@ public class AttackPlayerSystem : MonoBehaviour
             enemyStateHandler.OnChangeEnemyStatEvent?.Invoke(EnemyStat.Idle);
             return;
         }
+        isFarFromTarget = false;
         StartCoroutine(ParabolicAttack());
         Debug.Log($"<color=green>Parabolic Attack</color>");
     }
@@ -59,8 +62,14 @@ public class AttackPlayerSystem : MonoBehaviour
     {
 
         canAttack = false;
+        while (!isFarFromTarget) 
+        {
+            LaunchProjectile();
+            yield return new WaitForSeconds(attackCooldown);
 
-        LaunchProjectile();
+        }
+
+        
 
         yield return new WaitForSeconds(attackCooldown);
         enemyStateHandler.OnChangeEnemyStatEvent?.Invoke(EnemyStat.Idle); 
@@ -74,6 +83,23 @@ public class AttackPlayerSystem : MonoBehaviour
         {
             Vector3 velocity = CalculateLaunchVelocity(spawnPoint.position, player.position, projectileLaunchAngle);
             rb.linearVelocity = velocity;
+        }
+        CompareDistance(spawnPoint.position, player.position, threshold);
+    }
+    void CompareDistance(Vector3 pointA, Vector3 pointB, float threshold)
+    {
+        // Calcular la distancia entre los dos puntos
+        float distance = Vector3.Distance(pointA, pointB);
+
+        // Comparar la distancia con el umbral
+        if (distance <= threshold)
+        {
+            Debug.Log($"La distancia ({distance}) está dentro del umbral ({threshold}).");
+        }
+        else
+        {
+            Debug.Log($"La distancia ({distance}) supera el umbral ({threshold}).");
+            isFarFromTarget = true;
         }
     }
 

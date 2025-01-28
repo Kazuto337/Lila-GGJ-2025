@@ -208,11 +208,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1757970635289849453, guid: a5af202f5c7ca354d9db91776946d62d, type: 3}
   spawnPoint: {fileID: 90861628083434645}
   player: {fileID: 0}
-  projectileLaunchAngle: 45
-  ChargeSpeed: 200
+  projectileLaunchAngle: 25
+  threshold: 6
+  ChargeSpeed: 450
   ChargeStopDistance: 0.2
-  pushForce: 6
-  attackCooldown: 2
+  pushForce: 10
+  attackCooldown: 0.5
   canAttack: 0
 --- !u!54 &2972813273028511339
 Rigidbody:
