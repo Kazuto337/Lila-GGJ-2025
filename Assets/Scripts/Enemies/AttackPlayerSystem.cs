@@ -126,26 +126,31 @@ public class AttackPlayerSystem : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         canAttack = false;
 
-        float originalSpeed = agent.speed;
         bool originalAutoBraking = agent.autoBraking;
-        agent.autoBraking = false;
-        agent.speed = ChargeSpeed;
+        float originalSpeed = agent.speed;
 
+
+        //agent.autoBraking = false;
+        //agent.speed = ChargeSpeed;
+        agent.enabled = false;
         Vector3 targetPosition = player.position;
         targetPosition.y = transform.position.y;
 
-        agent.SetDestination(targetPosition);
+        //agent.SetDestination(targetPosition);
         
 
         while (Vector3.Distance(transform.position, targetPosition) > ChargeStopDistance)
         {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, ChargeSpeed * Time.deltaTime);
             yield return null;
         }
 
         PushPlayer();
 
-        agent.ResetPath();
-        agent.speed = originalSpeed;
+        //agent.ResetPath();
+        //agent.speed = originalSpeed;
+        agent.enabled = true;
+
 
         yield return new WaitForSeconds(attackCooldown);
 
