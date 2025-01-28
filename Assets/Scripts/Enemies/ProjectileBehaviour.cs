@@ -21,11 +21,11 @@ public class ProjectileBehaviour : MonoBehaviour
 
         attakingPlayer = false;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             StartCoroutine(DamagePlayer(playerStats));
         }
     }

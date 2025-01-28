@@ -144,15 +144,6 @@ public class EnemyStateHandler : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.CompareTag("Player"))
-        {
-            PlayerStats playerStats = hit.gameObject.GetComponent<PlayerStats>();
-            StartCoroutine(DamagePlayer(playerStats));
-        }
-    }
-
     private IEnumerator DamagePlayer(PlayerStats playerStats)
     {
         if (dealingDamage)

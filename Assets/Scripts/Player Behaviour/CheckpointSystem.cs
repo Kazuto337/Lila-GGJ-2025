@@ -46,6 +46,8 @@ public class CheckpointSystem : MonoBehaviour
         yield return null;
 
         transform.position = checkpointPosition;
+
+        yield return null;
         onBoundaryFound.Invoke(1);
 
         yield return new WaitForSeconds(1f);
