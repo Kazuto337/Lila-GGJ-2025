@@ -46,16 +46,21 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(3);
     }
     
     public void EndGame()
     {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(2);
     }
-
-    public void Return2MainMenu()
+    public void ReturnMianMenu()
     {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(2);
     }
 }

@@ -27,6 +27,11 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             StartCoroutine(DamagePlayer(playerStats));
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
         }
     }
 }

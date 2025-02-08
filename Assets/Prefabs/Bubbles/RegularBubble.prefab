@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 1.5, z: -6}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3e7805762fe32d4a909dfc614078444, type: 2}
+  - {fileID: 2100000, guid: 7af21ee996dc99d47a16fb4648ea793b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   lifeTime: 5
+  canMove: 0
   mRigidbody: {fileID: 7361376695594766075}
   effectCollider: {fileID: 4123411210345186461}
   meshRenderer: {fileID: 1516958564299842622}
-  targetLevitationHeight: 4

@@ -15,6 +15,8 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] InputActionReference nextBubble;
     [SerializeField] InputActionReference previousBubble;
 
+    [SerializeField] Animator animator;
+
     private CharacterController controller;
     private Vector3 playerVelocity;
     private Transform cameraTransmform;
@@ -94,6 +96,8 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
+        animator.SetBool("isShooting", true);
+
         if (isLocking)
         {
             FireLocking(lockedTransform);
@@ -158,16 +162,23 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 move = new Vector3(movementInputVector.x, 0, movementInputVector.y);
         move = cameraTransmform.forward * move.z + cameraTransmform.right * move.x;
         move.y = 0;
+
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
         {
+            animator.SetBool("isMoving", true);
             gameObject.transform.forward = move;
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
 
         // Makes the player jump
         if (jumpAction.action.triggered && jumpCondition)
         {
+            animator.SetBool("isJumping", true);
             if (jumpsAmount > 1)
             {
                 StartCoroutine(WaitForSecondJump());
@@ -187,6 +198,10 @@ public class PlayerBehaviour : MonoBehaviour
             playerVelocity.y += gravityValue * playerMass * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
         }
+        else
+        {
+            animator.SetBool("isJumping", false);
+        }
     }
 
     public IEnumerator Bounce()
@@ -200,11 +215,16 @@ public class PlayerBehaviour : MonoBehaviour
         isBouncing = true;
 
         yield return new WaitForSeconds(0.05f);
+
+        animator.SetBool("isJumping", true);
+
         Debug.Log("Boing");
+
         playerVelocity.y += Mathf.Sqrt(jumpHeight + 4 * -2 * gravityValue);
         controller.Move(playerVelocity * Time.deltaTime);
 
         isBouncing = false;
+        animator.SetBool("isJumping", false);
     }
 
     private void CheckInventoryInput()

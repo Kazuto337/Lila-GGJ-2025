@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Santiago Lara
+  m_text: Juan fELIPE oSORIO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
   m_sharedMaterial: {fileID: 7537758555310990627, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
@@ -3001,7 +3001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: jEFERSON aLVAREZ
+  m_text: Sebastian Campuzano
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
   m_sharedMaterial: {fileID: 7537758555310990627, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
