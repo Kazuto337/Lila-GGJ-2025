@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 7af2380132ecd174bb4752fdeb2b6458
+guid: 32edc8b612446424298bcf2f538cbea0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cepillo
-    second: {fileID: 2100000, guid: bb484d25734533e4db136770ec08f5e3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Hebras
-    second: {fileID: 2100000, guid: cc41396d09aa60149821925e63b3048e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Lila
-    second: {fileID: 2100000, guid: cd37340bb8bb9fc4da8ece3aa75f404b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -36,7 +21,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importConstraints: 1
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -49,7 +34,7 @@ ModelImporter:
       name: Armature|FreeFall
       takeName: Armature|FreeFall
       internalID: 2144466137327879074
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
@@ -58,7 +43,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -78,7 +63,7 @@ ModelImporter:
       name: Armature|HacerDamage
       takeName: Armature|HacerDamage
       internalID: 5000079262935228495
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
@@ -86,7 +71,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -107,7 +92,7 @@ ModelImporter:
       name: Armature|Idle
       takeName: Armature|Idle
       internalID: -8945691123924629249
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 62
       wrapMode: 0
       orientationOffsetY: 0
@@ -116,7 +101,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -136,7 +121,7 @@ ModelImporter:
       name: Armature|IdleBreaker
       takeName: Armature|IdleBreaker
       internalID: 6245091392327960728
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 257
       wrapMode: 0
       orientationOffsetY: 0
@@ -165,7 +150,7 @@ ModelImporter:
       name: Armature|Jump
       takeName: Armature|Jump
       internalID: 1079665108409675491
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
@@ -194,7 +179,7 @@ ModelImporter:
       name: Armature|Recibirdamage
       takeName: Armature|Recibirdamage
       internalID: -4648913873780256617
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
@@ -223,7 +208,7 @@ ModelImporter:
       name: Armature|Run
       takeName: Armature|Run
       internalID: -7551964380084998518
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
@@ -232,7 +217,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -307,48 +292,48 @@ ModelImporter:
     - name: 01 Cuerpo
       parentName: Lila(Clone)
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 100, y: 100, z: 100}
+      rotation: {x: -6.123236e-17, y: 1, z: 6.123236e-17, w: 0.00000031391647}
+      scale: {x: 1, y: 1, z: 1}
     - name: Armature
       parentName: Lila(Clone)
-      position: {x: 0, y: -0.5517956, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      position: {x: -0.04547275, y: -0.3123849, z: 0}
+      rotation: {x: -0.00000018831392, y: 0.7071068, z: 0.7071067, w: 0.00000018831393}
       scale: {x: 100, y: 100, z: 100}
     - name: root
       parentName: Armature
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+      rotation: {x: 0.49999988, y: -0.50000006, z: -0.5, w: 0.5}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
     - name: Cadera1
       parentName: root
-      position: {x: 0.0012102916, y: 0.0048064557, z: 0}
-      rotation: {x: -0, y: -0, z: -0, w: 1}
-      scale: {x: 1.0000004, y: 1, z: 1.0000004}
+      position: {x: 0.0012102916, y: 0.0048064557, z: -5.2903525e-11}
+      rotation: {x: -0, y: -0, z: 0.000000029802319, w: 1}
+      scale: {x: 1, y: 1, z: 0.9999998}
     - name: cadera2
       parentName: Cadera1
       position: {x: 1.4901161e-10, y: 0.0024006076, z: 3.3748082e-18}
-      rotation: {x: 0.000000029802322, y: 0.0000001937151, z: -0.000000029802322, w: 1}
-      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999998}
+      rotation: {x: -5.3290697e-15, y: -0.00000017881393, z: 3.5527137e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Pecho/barriga
       parentName: cadera2
       position: {x: -1.11758706e-10, y: 0.0017086675, z: 2.7942995e-17}
-      rotation: {x: -0.00000005960465, y: -0.00000002980231, z: -1.3766766e-14, w: 1}
-      scale: {x: 1.0000004, y: 0.99999964, z: 1.0000004}
+      rotation: {x: 0.000000014901156, y: -0, z: -0.000000029802322, w: 1}
+      scale: {x: 1.007164, y: 1.0071633, z: 1.007164}
     - name: Pecho
       parentName: Pecho/barriga
-      position: {x: -8.381903e-11, y: 0.0024359087, z: 1.5410956e-16}
-      rotation: {x: 0.00000002980233, y: -0.00000016391279, z: 0.000000029802326, w: 1}
-      scale: {x: 1.0000002, y: 1, z: 1.0000006}
+      position: {x: -1.0244548e-10, y: 0.0024359073, z: 3.265772e-17}
+      rotation: {x: -0.000000014901156, y: 0.00000017881393, z: 0.000000029802317, w: 1}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000005}
     - name: cuerro
       parentName: Pecho
-      position: {x: -1.4901161e-10, y: 0.0024251766, z: 1.5809582e-17}
-      rotation: {x: -0, y: -0, z: -4.4408752e-16, w: 1}
-      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+      position: {x: -7.4505804e-11, y: 0.002425176, z: -4.6934604e-18}
+      rotation: {x: -0, y: -0, z: 8.881777e-16, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
     - name: cabeza
       parentName: cuerro
-      position: {x: 7.4505804e-11, y: 0.00058628415, z: 3.4570463e-18}
+      position: {x: -2.2351741e-10, y: 0.0005862861, z: -1.4576843e-17}
       rotation: {x: -0, y: -0, z: -0, w: 1}
-      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+      scale: {x: 1.0000004, y: 0.99999994, z: 1.0000002}
     - name: cabeza_end
       parentName: cabeza
       position: {x: -0, y: 0.011003845, z: 0}
@@ -357,8 +342,8 @@ ModelImporter:
     - name: BlinkController
       parentName: root
       position: {x: -0.007889826, y: 0.01904901, z: 3.4487527e-10}
-      rotation: {x: -0, y: 0.000000059604645, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1.0000001}
+      rotation: {x: -0, y: -0, z: 0.000000029802319, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999976}
     - name: BlinkController_end
       parentName: BlinkController
       position: {x: -0, y: 0.0019933295, z: 0}
@@ -367,23 +352,23 @@ ModelImporter:
     - name: pierna1.L
       parentName: Armature
       position: {x: 0.0015641506, y: -0.0015311703, z: 0.0057104193}
-      rotation: {x: 0.46615088, y: -0.4800169, z: 0.5166025, w: -0.5342369}
-      scale: {x: 0.9999999, y: 1.0000006, z: 1.0000005}
+      rotation: {x: -0.4661509, y: 0.48001686, z: -0.5166025, w: 0.53423685}
+      scale: {x: 0.9999999, y: 1.0000005, z: 1.0000006}
     - name: pierna2.L
       parentName: pierna1.L
       position: {x: 7.4505804e-11, y: 0.002685297, z: 2.0489097e-10}
-      rotation: {x: -0.04159224, y: -0.010668486, z: -0.14845099, w: 0.9879872}
-      scale: {x: 1.0000004, y: 0.99999994, z: 0.9999996}
+      rotation: {x: -0.041592225, y: -0.010668442, z: -0.14845116, w: 0.98798716}
+      scale: {x: 1.0000006, y: 1.0000001, z: 0.99999964}
     - name: pie1.L
       parentName: pierna2.L
       position: {x: 7.4505804e-11, y: 0.002094449, z: 1.11758706e-10}
-      rotation: {x: -0.1005796, y: -0.09120946, z: -0.7380437, w: -0.6609509}
-      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+      rotation: {x: -0.10057955, y: -0.09120946, z: -0.7380438, w: -0.6609509}
+      scale: {x: 0.9999998, y: 1, z: 1.0000004}
     - name: pie2.L
       parentName: pie1.L
       position: {x: -1.9557773e-10, y: 0.0015227931, z: 8.381903e-11}
-      rotation: {x: 0.011388409, y: 0.044930346, z: 0.070765145, w: 0.99641556}
-      scale: {x: 0.99999964, y: 0.9999999, z: 0.99999994}
+      rotation: {x: -0.0113884015, y: -0.044930346, z: -0.0707653, w: -0.9964155}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999964}
     - name: pie2.L_end
       parentName: pie2.L
       position: {x: -0, y: 0.0015627412, z: 0}
@@ -391,34 +376,34 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: hombro.L
       parentName: Armature
-      position: {x: 0.00082161184, y: 0.0010837867, z: 0.012343616}
-      rotation: {x: 0.28012237, y: -0.17412518, z: 0.81609315, w: -0.47455657}
-      scale: {x: 0.99999976, y: 0.99999946, z: 0.9999997}
+      position: {x: 0.0008274974, y: 0.0010961253, z: 0.012368506}
+      rotation: {x: 0.28012237, y: -0.1741251, z: 0.8160932, w: -0.4745565}
+      scale: {x: 1.0071632, y: 1.0071632, z: 1.007163}
     - name: brazo.L
       parentName: hombro.L
-      position: {x: -1.6763806e-10, y: 0.0024141367, z: -0.000000001913868}
-      rotation: {x: -0.3457349, y: -0.096992195, z: 0.23731333, w: 0.9026308}
-      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+      position: {x: -4.842877e-10, y: 0.0024141367, z: 0.0000000012293457}
+      rotation: {x: -0.0028970838, y: -0.000048466027, z: 0.27183574, w: 0.96233934}
+      scale: {x: 0.99999964, y: 1.0000002, z: 1}
     - name: antebrazo.L
       parentName: brazo.L
-      position: {x: -1.4901161e-10, y: 0.0024480855, z: 0.0000000010058283}
-      rotation: {x: -0.02631116, y: -0.0043765227, z: 0.046905696, w: 0.9985432}
-      scale: {x: 1.0000005, y: 1.0000006, z: 1.0000005}
+      position: {x: -7.4505804e-11, y: 0.002448085, z: 4.0978193e-10}
+      rotation: {x: 0.026310839, y: 0.004376568, z: -0.046905685, w: -0.9985432}
+      scale: {x: 1.0000001, y: 0.9999997, z: 0.9999998}
     - name: muneca.L
       parentName: antebrazo.L
-      position: {x: -7.4505804e-11, y: 0.002152961, z: 0.0000000012293457}
-      rotation: {x: 0.3706639, y: 0.52003026, z: -0.37016284, w: 0.67465264}
-      scale: {x: 1.0000001, y: 0.9999998, z: 1.0000001}
+      position: {x: -7.4505804e-11, y: 0.0021529621, z: -4.842877e-10}
+      rotation: {x: -0.08941735, y: -0.0000002896413, z: 0.06572129, w: -0.9938236}
+      scale: {x: 1, y: 1.0000002, z: 1.0000005}
     - name: dedos1.L
       parentName: muneca.L
-      position: {x: 4.4703483e-10, y: 0.0015183557, z: -2.9802322e-10}
-      rotation: {x: -0.0136106, y: -0.000000052015555, z: -0.00024972524, w: 0.9999073}
-      scale: {x: 1.0000002, y: 0.9999999, z: 1.0000002}
+      position: {x: -1.4901161e-10, y: 0.0015183573, z: -2.2351741e-10}
+      rotation: {x: -0.013610941, y: -0.00000002583152, z: -0.00024980173, w: 0.9999073}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000006}
     - name: dedos2.L
       parentName: dedos1.L
-      position: {x: 4.4703483e-10, y: 0.00062332005, z: -8.9406965e-10}
-      rotation: {x: -0.031331476, y: 0.000000008253994, z: -0.0005749105, w: 0.9995089}
-      scale: {x: 1.0000001, y: 1.0000004, z: 0.99999976}
+      position: {x: -0, y: 0.00062331924, z: -8.9406965e-10}
+      rotation: {x: -0.03133151, y: 0.00000004390548, z: -0.000574765, w: 0.99950886}
+      scale: {x: 0.99999994, y: 1, z: 0.99999976}
     - name: dedos2.L_end
       parentName: dedos2.L
       position: {x: -0, y: 0.0007786135, z: 0}
@@ -426,14 +411,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: purgar1.L
       parentName: Armature
-      position: {x: 0.007731126, y: -0.0011133548, z: 0.010421826}
-      rotation: {x: -0.07005927, y: 0.487324, z: 0.027735934, w: 0.86996424}
-      scale: {x: 1.0000001, y: 0.9999999, z: 0.9999999}
+      position: {x: 0.007786506, y: -0.0011167551, z: 0.010432949}
+      rotation: {x: -0.07005937, y: 0.48732394, z: 0.027735831, w: 0.8699643}
+      scale: {x: 1.007163, y: 1.0071629, z: 1.007163}
     - name: purgar2.L
       parentName: purgar1.L
-      position: {x: -3.72529e-10, y: 0.00054794626, z: 4.2840836e-10}
-      rotation: {x: 0.13700372, y: -0.10663968, z: 0.097921535, w: -0.9799333}
-      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000001}
+      position: {x: 4.4703483e-10, y: 0.00054794614, z: -2.4214386e-10}
+      rotation: {x: -0.13700381, y: 0.10663971, z: -0.09792146, w: 0.9799334}
+      scale: {x: 0.9999997, y: 1.0000008, z: 1.0000005}
     - name: purgar2.L_end
       parentName: purgar2.L
       position: {x: -0, y: 0.000478562, z: 0}
@@ -441,14 +426,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: OrejaI.1.L
       parentName: Armature
-      position: {x: 0.005454517, y: 0.002253189, z: 0.019113522}
-      rotation: {x: -0.08622702, y: 0.08622692, z: 0.85226864, w: -0.5086925}
-      scale: {x: 1.0149125, y: 1.0149125, z: 1.014922}
+      position: {x: 0.0054935887, y: 0.0022739053, z: 0.019186905}
+      rotation: {x: 0.08622692, y: -0.08622706, z: -0.8522687, w: 0.50869244}
+      scale: {x: 1.0221823, y: 1.0221821, z: 1.0221926}
     - name: OrejaI.2.L
       parentName: OrejaI.1.L
-      position: {x: 1.11758706e-10, y: 0.0021555272, z: -9.49949e-10}
-      rotation: {x: 0.16327111, y: 0.050189104, z: -0.07234071, w: 0.9826446}
-      scale: {x: 1, y: 1, z: 1.0000002}
+      position: {x: 4.842877e-10, y: 0.0021555268, z: 2.9802322e-10}
+      rotation: {x: 0.16327134, y: 0.05018927, z: -0.072340585, w: 0.98264456}
+      scale: {x: 1, y: 1, z: 0.99999976}
     - name: OrejaI.2.L_end
       parentName: OrejaI.2.L
       position: {x: -0, y: 0.0049269963, z: 0}
@@ -457,23 +442,23 @@ ModelImporter:
     - name: pierna1.R
       parentName: Armature
       position: {x: -0.0015641506, y: -0.0015311703, z: 0.0057104193}
-      rotation: {x: 0.46615088, y: 0.48001692, z: -0.51660246, w: -0.53423685}
-      scale: {x: 0.99999976, y: 1, z: 1.0000005}
+      rotation: {x: -0.46615094, y: -0.48001683, z: 0.51660246, w: 0.5342369}
+      scale: {x: 0.9999997, y: 1, z: 1.0000004}
     - name: pierna2.R
       parentName: pierna1.R
-      position: {x: -2.0489097e-10, y: 0.0026852977, z: 9.313225e-11}
-      rotation: {x: -0.04159218, y: 0.010668486, z: 0.14845105, w: 0.98798716}
-      scale: {x: 1.0000001, y: 1.0000005, z: 0.9999995}
+      position: {x: -1.862645e-10, y: 0.0026852977, z: 9.313225e-11}
+      rotation: {x: -0.041592225, y: 0.010668412, z: 0.14845102, w: 0.98798716}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.99999976}
     - name: pie1.R
       parentName: pierna2.R
-      position: {x: -0, y: 0.002094449, z: 2.3283064e-10}
-      rotation: {x: -0.1005796, y: 0.09120944, z: 0.7380438, w: -0.66095084}
-      scale: {x: 1.0000002, y: 0.99999934, z: 0.9999998}
+      position: {x: 3.7252902e-11, y: 0.0020944495, z: 1.2340023e-10}
+      rotation: {x: 0.100579485, y: -0.091209434, z: -0.7380436, w: 0.660951}
+      scale: {x: 1.0000006, y: 0.99999976, z: 1.0000004}
     - name: pie2.R
       parentName: pie1.R
-      position: {x: -1.11758706e-10, y: 0.0015227934, z: -1.2572854e-10}
-      rotation: {x: 0.011388399, y: -0.044930354, z: -0.07076506, w: 0.99641556}
-      scale: {x: 0.99999946, y: 0.9999997, z: 0.99999976}
+      position: {x: -2.7939677e-11, y: 0.0015227933, z: -3.0035152e-10}
+      rotation: {x: 0.011388446, y: -0.04493031, z: -0.07076525, w: 0.9964155}
+      scale: {x: 1, y: 1.0000005, z: 1.0000002}
     - name: pie2.R_end
       parentName: pie2.R
       position: {x: -0, y: 0.0015627412, z: 0}
@@ -482,8 +467,8 @@ ModelImporter:
     - name: IKpierna.R
       parentName: Armature
       position: {x: -0.0022550167, y: -0.0010080739, z: 0.001279566}
-      rotation: {x: 0.6901027, y: 0.10429317, z: -0.7081165, w: 0.10701546}
-      scale: {x: 0.99999976, y: 1, z: 0.99999976}
+      rotation: {x: -0.6901027, y: -0.104293115, z: 0.7081165, w: -0.10701556}
+      scale: {x: 0.9999998, y: 0.9999998, z: 1}
     - name: IKpierna.R_end
       parentName: IKpierna.R
       position: {x: -0, y: 0.0013070235, z: 0}
@@ -491,39 +476,39 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: hombro.R
       parentName: Armature
-      position: {x: -0.00082161184, y: 0.0010837867, z: 0.012343616}
-      rotation: {x: -0.28012234, y: -0.17412516, z: 0.81609315, w: 0.47455657}
-      scale: {x: 1, y: 1, z: 1}
+      position: {x: -0.0008274972, y: 0.0010961253, z: 0.012368506}
+      rotation: {x: -0.28012234, y: -0.17412502, z: 0.8160932, w: 0.4745565}
+      scale: {x: 1.0071634, y: 1.0071633, z: 1.0071633}
     - name: brazo.R
       parentName: hombro.R
-      position: {x: 2.9802322e-10, y: 0.0024141371, z: -9.592622e-10}
-      rotation: {x: -0.34573445, y: 0.09699223, z: -0.23731335, w: 0.9026309}
-      scale: {x: 1.0000002, y: 1, z: 1}
+      position: {x: -2.9802322e-10, y: 0.0024141364, z: 8.800998e-10}
+      rotation: {x: -0.29819587, y: 0.08354908, z: -0.24241419, w: 0.9194206}
+      scale: {x: 1, y: 1.0000005, z: 1.0000004}
     - name: antebrazo.R
       parentName: brazo.R
-      position: {x: -1.4901161e-10, y: 0.0024480857, z: -0.000000001117587}
-      rotation: {x: 0.02631121, y: -0.004376483, z: 0.046905547, w: -0.99854314}
-      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000004}
+      position: {x: -0, y: 0.0024480852, z: -1.3038516e-10}
+      rotation: {x: -0.026311342, y: 0.004376548, z: -0.046905734, w: 0.99854314}
+      scale: {x: 1.0000002, y: 0.9999998, z: 0.9999998}
     - name: muneca.R
       parentName: antebrazo.R
-      position: {x: -4.4703483e-10, y: 0.0021529624, z: 0.0000000010058283}
-      rotation: {x: -0.37066346, y: 0.5200303, z: -0.37016326, w: -0.67465264}
-      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000004}
+      position: {x: -2.2351741e-10, y: 0.0021529621, z: -0.0000000016391277}
+      rotation: {x: 0.29057992, y: 0.48172775, z: -0.30019268, w: 0.77031565}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
     - name: Cepillo
       parentName: muneca.R
-      position: {x: -0.010698354, y: 0.0012179754, z: -0.00043162523}
-      rotation: {x: -0.108987264, y: 0.7051908, z: -0.10700595, w: 0.6923709}
-      scale: {x: 0.9925269, y: 0.992527, z: 0.992527}
+      position: {x: -0.010698353, y: 0.0012179741, z: -0.00043162346}
+      rotation: {x: 0.4125146, y: 0.4229804, z: -0.57431, w: 0.5666456}
+      scale: {x: 0.00992527, y: 0.009925269, z: 0.009925269}
     - name: dedos1.R
       parentName: muneca.R
-      position: {x: 1.4901161e-10, y: 0.0015183561, z: 0.0000000016391277}
-      rotation: {x: -0.0136106685, y: 0.00000002750619, z: 0.00024974637, w: 0.9999074}
-      scale: {x: 1.0000001, y: 0.99999976, z: 1}
+      position: {x: -1.4901161e-10, y: 0.0015183573, z: -8.1956386e-10}
+      rotation: {x: -0.013610646, y: 0.000000066870314, z: 0.0002497542, w: 0.9999074}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000005}
     - name: dedos2.R
       parentName: dedos1.R
-      position: {x: 7.4505804e-11, y: 0.0006233194, z: -6.705522e-10}
-      rotation: {x: -0.03133146, y: -0.000000023879023, z: 0.00057485246, w: 0.9995089}
-      scale: {x: 0.9999998, y: 1.0000001, z: 1}
+      position: {x: 0.000000001117587, y: 0.0006233206, z: -6.705522e-10}
+      rotation: {x: -0.03133151, y: 0.00000001968091, z: 0.00057475845, w: 0.9995089}
+      scale: {x: 1, y: 1, z: 0.9999999}
     - name: dedos2.R_end
       parentName: dedos2.R
       position: {x: -0, y: 0.0007786135, z: 0}
@@ -531,14 +516,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: purgar1.R
       parentName: Armature
-      position: {x: -0.0072036884, y: -0.00054673146, z: 0.010961482}
-      rotation: {x: -0.07005933, y: -0.487324, z: -0.027735934, w: 0.86996424}
-      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+      position: {x: -0.007255291, y: -0.0005460731, z: 0.010976472}
+      rotation: {x: -0.07005944, y: -0.48732394, z: -0.027735947, w: 0.86996424}
+      scale: {x: 1.0071635, y: 1.0071635, z: 1.0071633}
     - name: purgar2.R
       parentName: purgar1.R
-      position: {x: 1.7229468e-10, y: 0.00054794713, z: -2.0489097e-10}
-      rotation: {x: 0.13700376, y: 0.10663981, z: -0.09792145, w: -0.9799333}
-      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000005}
+      position: {x: -1.4901161e-10, y: 0.0005479454, z: -5.0291415e-10}
+      rotation: {x: -0.13700373, y: -0.10663968, z: 0.09792139, w: 0.9799334}
+      scale: {x: 1, y: 1.0000002, z: 0.99999994}
     - name: purgar2.R_end
       parentName: purgar2.R
       position: {x: -0, y: 0.000478562, z: 0}
@@ -546,14 +531,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: OrejaI.1.R
       parentName: Armature
-      position: {x: -0.005454517, y: 0.002253189, z: 0.019113522}
-      rotation: {x: 0.08622697, y: 0.08622691, z: 0.8522686, w: 0.5086925}
-      scale: {x: 1.014911, y: 1.0149112, z: 1.0149217}
+      position: {x: -0.0054935887, y: 0.0022739053, z: 0.019186905}
+      rotation: {x: -0.08622697, y: -0.0862271, z: -0.8522686, w: -0.50869256}
+      scale: {x: 1.0221808, y: 1.0221807, z: 1.0221916}
     - name: OrejaI.2.R
       parentName: OrejaI.1.R
-      position: {x: -1.862645e-10, y: 0.0021555258, z: -5.2154064e-10}
-      rotation: {x: 0.16327119, y: -0.050189096, z: 0.0723407, w: 0.9826446}
-      scale: {x: 1.0000004, y: 1, z: 1.0000002}
+      position: {x: -4.0978193e-10, y: 0.0021555263, z: 6.1467287e-10}
+      rotation: {x: 0.1632712, y: -0.050189104, z: 0.072340794, w: 0.9826446}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
     - name: OrejaI.2.R_end
       parentName: OrejaI.2.R
       position: {x: -0, y: 0.0049269963, z: 0}
@@ -561,14 +546,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Mechon1.L
       parentName: Armature
-      position: {x: 0.005170437, y: 0.006865787, z: 0.02017003}
-      rotation: {x: 0.67637736, y: 0.0000000037252903, z: 0.0672718, w: -0.7334768}
-      scale: {x: 1.0149212, y: 1.0149163, z: 1.014917}
+      position: {x: 0.0052074734, y: 0.0069195447, z: 0.020250985}
+      rotation: {x: -0.6763775, y: 0.000000037252903, z: -0.067271836, w: 0.7334767}
+      scale: {x: 1.0221914, y: 1.0221869, z: 1.0221871}
     - name: Mechon2.L
       parentName: Mechon1.L
-      position: {x: 4.6566126e-11, y: 0.0030190519, z: 8.9406965e-10}
-      rotation: {x: 0.005446464, y: -0.050701823, z: 0.19119412, w: 0.98022676}
-      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000005}
+      position: {x: 8.1025064e-10, y: 0.0030190502, z: -7.45058e-10}
+      rotation: {x: 0.005446613, y: -0.050701853, z: 0.19119412, w: 0.98022676}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000004}
     - name: Mechon2.L_end
       parentName: Mechon2.L
       position: {x: -0, y: 0.002969723, z: 0}
@@ -576,14 +561,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Mechon1.R
       parentName: Armature
-      position: {x: -0.005778651, y: 0.0070512434, z: 0.020045599}
-      rotation: {x: 0.6440833, y: 0.0000000018626451, z: -0.017045038, w: -0.76476544}
-      scale: {x: 1.0149223, y: 1.0149183, z: 1.0149179}
+      position: {x: -0.0058200457, y: 0.0071063302, z: 0.020125661}
+      rotation: {x: -0.64408344, y: 0.000000034458935, z: 0.017044997, w: 0.7647653}
+      scale: {x: 1.0221927, y: 1.0221883, z: 1.0221881}
     - name: Mechon2.R
       parentName: Mechon1.R
-      position: {x: 2.4214386e-10, y: 0.0028907354, z: 5.401671e-10}
-      rotation: {x: -0.14269325, y: 0.17133106, z: -0.10946474, w: 0.9686598}
-      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000002}
+      position: {x: 6.0768796e-10, y: 0.002890737, z: -8.9406965e-10}
+      rotation: {x: -0.1426931, y: 0.17133106, z: -0.10946474, w: 0.9686599}
+      scale: {x: 1.0000013, y: 1.0000007, z: 1.0000002}
     - name: Mechon2.R_end
       parentName: Mechon2.R
       position: {x: -0, y: 0.0028918716, z: 0}
@@ -591,19 +576,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Trenza1.L
       parentName: Armature
-      position: {x: 0.0056997733, y: 0.0035725012, z: 0.018242337}
-      rotation: {x: 0.01763701, y: -0.706887, z: 0.706887, w: 0.01762042}
-      scale: {x: 1.01489, y: 1.0149058, z: 1.0149064}
+      position: {x: 0.0057406025, y: 0.0036026682, z: 0.018309481}
+      rotation: {x: 0.017636966, y: -0.706887, z: 0.706887, w: 0.017620448}
+      scale: {x: 1.0221608, y: 1.022177, z: 1.0221764}
     - name: Trenza2.L
       parentName: Trenza1.L
-      position: {x: -3.7951395e-10, y: 0.0030321768, z: 2.3283064e-10}
-      rotation: {x: 0.00000028996004, y: 0.00000010392387, z: 0.024930744, w: 0.99968916}
-      scale: {x: 0.99993396, y: 0.99996746, z: 0.99996674}
+      position: {x: 5.727634e-10, y: 0.0030321758, z: -5.0291415e-10}
+      rotation: {x: 0.00000037814044, y: 0.00000010460553, z: 0.02493073, w: 0.9996892}
+      scale: {x: 0.99993414, y: 0.9999677, z: 0.999967}
     - name: Trenza3.L
       parentName: Trenza2.L
-      position: {x: -6.947084e-10, y: 0.002644982, z: -2.4214386e-10}
-      rotation: {x: 6.8212103e-12, y: -4.5551474e-10, z: 0.0000000018626152, w: 1}
-      scale: {x: 1.0000004, y: 1.0000005, z: 0.9999999}
+      position: {x: 1.4260877e-10, y: 0.002644979, z: -0.0000000010617077}
+      rotation: {x: 2.8421706e-14, y: -0.0000000011358593, z: 0.0000000018626058, w: 1}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000004}
     - name: Trenza3.L_end
       parentName: Trenza3.L
       position: {x: -0, y: 0.001532408, z: 0}
@@ -611,19 +596,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Trenza1.R
       parentName: Armature
-      position: {x: -0.005635846, y: 0.0035725012, z: 0.018242337}
-      rotation: {x: 0.017637007, y: -0.706887, z: 0.706887, w: 0.01762042}
-      scale: {x: 1.0149006, y: 1.0149108, z: 1.0149106}
+      position: {x: -0.0056762174, y: 0.003602668, z: 0.018309481}
+      rotation: {x: 0.017636973, y: -0.70688695, z: 0.70688707, w: 0.017620457}
+      scale: {x: 1.0221707, y: 1.022181, z: 1.022181}
     - name: Trenza2.R
       parentName: Trenza1.R
-      position: {x: 7.683411e-11, y: 0.003032174, z: 3.0733643e-10}
-      rotation: {x: 0.00000020049865, y: 0.00000010119902, z: 0.024930742, w: 0.9996892}
-      scale: {x: 0.9999784, y: 0.99998957, z: 0.99998915}
+      position: {x: -4.4470652e-10, y: 0.0030321758, z: -0.0000000019185245}
+      rotation: {x: 0.00000028873364, y: 0.000000103106686, z: 0.024930745, w: 0.99968916}
+      scale: {x: 0.99997777, y: 0.999989, z: 0.99998915}
     - name: Trenza3.R
       parentName: Trenza2.R
-      position: {x: 3.6496203e-10, y: 0.002644978, z: 1.5832484e-10}
-      rotation: {x: -0, y: -0, z: -2.0290264e-14, w: 1}
-      scale: {x: 1.0000005, y: 1.0000007, z: 1}
+      position: {x: -3.4982803e-10, y: 0.0026449785, z: 2.7939676e-10}
+      rotation: {x: -1.8161472e-11, y: -7.2600415e-10, z: -0.00000000372532, w: 1}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
     - name: Trenza3.R_end
       parentName: Trenza3.R
       position: {x: -0, y: 0.001532408, z: 0}
@@ -631,9 +616,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Eye.R
       parentName: Armature
-      position: {x: -0.0021779872, y: 0.0060545104, z: 0.017416738}
-      rotation: {x: -0.002957642, y: 0.0000000037252903, z: 0.0709535, w: 0.99747527}
-      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+      position: {x: -0.0021935888, y: 0.0061024567, z: 0.017477969}
+      rotation: {x: -0.0029578211, y: 0.0000000074505815, z: 0.070953496, w: 0.99747527}
+      scale: {x: 1.007163, y: 1.0071632, z: 1.0071635}
     - name: Eye.R_end
       parentName: Eye.R
       position: {x: -0, y: 0.0016681552, z: 0}
@@ -641,9 +626,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Eye.L
       parentName: Armature
-      position: {x: 0.0021779872, y: 0.0060545104, z: 0.017416738}
-      rotation: {x: -0.002957642, y: -0.0000000037252903, z: -0.0709535, w: 0.99747527}
-      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+      position: {x: 0.002193589, y: 0.0061024567, z: 0.017477969}
+      rotation: {x: -0.0029577615, y: -0.0000000074505815, z: -0.07095354, w: 0.99747527}
+      scale: {x: 1.0071634, y: 1.0071635, z: 1.0071636}
     - name: Eye.L_end
       parentName: Eye.L
       position: {x: -0, y: 0.0016681552, z: 0}
@@ -651,14 +636,14 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: TargetsCON
       parentName: Armature
-      position: {x: -4.2875097e-17, y: 0.014038565, z: 0.009982554}
-      rotation: {x: 0.7071068, y: 5.84905e-23, z: 1.7547153e-22, w: 0.7071068}
-      scale: {x: 1, y: 0.9999998, z: 0.9999997}
+      position: {x: 1.1368684e-15, y: 0.014143705, z: 0.00999053}
+      rotation: {x: 0.7071067, y: -0.00000003365855, z: -0.000000033658523, w: 0.7071068}
+      scale: {x: 1.0071633, y: 1.0071635, z: 1.0071634}
     - name: EyeT.L
       parentName: TargetsCON
-      position: {x: 0.0024141127, y: -0.000009111762, z: 0.00062488375}
-      rotation: {x: -0.7071068, y: -5.84905e-23, z: -1.7547153e-22, w: 0.7071068}
-      scale: {x: 1, y: 0.9999996, z: 0.9999997}
+      position: {x: 0.0024141127, y: -0.000009112954, z: 0.00062488555}
+      rotation: {x: -0.7071068, y: -3.1974426e-14, z: -3.6136692e-14, w: 0.7071068}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
     - name: EyeT.L_end
       parentName: EyeT.L
       position: {x: -0, y: 0.0011806834, z: 0}
@@ -666,9 +651,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: EyeT.R
       parentName: TargetsCON
-      position: {x: -0.0024141127, y: -0.000009111762, z: 0.00062488375}
-      rotation: {x: -0.7071068, y: -5.84905e-23, z: -1.7547153e-22, w: 0.7071068}
-      scale: {x: 1, y: 0.9999996, z: 0.9999997}
+      position: {x: -0.0024141127, y: -0.000009112954, z: 0.00062488555}
+      rotation: {x: -0.7071068, y: -3.1974426e-14, z: -3.6136692e-14, w: 0.7071068}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
     - name: EyeT.R_end
       parentName: EyeT.R
       position: {x: -0, y: 0.0011806834, z: 0}
@@ -677,8 +662,8 @@ ModelImporter:
     - name: pole.R
       parentName: Armature
       position: {x: -0.005210464, y: 0.00472178, z: 0.0026461335}
-      rotation: {x: 0.10277302, y: -0.66656214, z: 0.11250914, w: 0.72970843}
-      scale: {x: 0.9999998, y: 1, z: 0.9999998}
+      rotation: {x: 0.10277289, y: -0.66656214, z: 0.112509124, w: 0.7297085}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1}
     - name: pole.R_end
       parentName: pole.R
       position: {x: -0, y: 0.0011517502, z: 0}
@@ -687,8 +672,8 @@ ModelImporter:
     - name: Pole.L
       parentName: Armature
       position: {x: 0.0027313672, y: 0.0023168055, z: 0.0029125425}
-      rotation: {x: 0.10277302, y: 0.66656214, z: -0.11250914, w: 0.72970843}
-      scale: {x: 0.9999998, y: 1, z: 0.9999998}
+      rotation: {x: 0.10277301, y: 0.6665621, z: -0.11250929, w: 0.7297084}
+      scale: {x: 1.0000004, y: 1, z: 1.0000004}
     - name: Pole.L_end
       parentName: Pole.L
       position: {x: -0, y: 0.0011517502, z: 0}
@@ -697,8 +682,8 @@ ModelImporter:
     - name: IKpierna.L
       parentName: Armature
       position: {x: 0.0030330026, y: -0.0020207353, z: 0.0016791481}
-      rotation: {x: 0.69010276, y: -0.10429311, z: 0.7081165, w: 0.10701552}
-      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+      rotation: {x: 0.69010276, y: -0.10429302, z: 0.7081164, w: 0.1070157}
+      scale: {x: 1, y: 0.9999999, z: 1}
     - name: IKpierna.L_end
       parentName: IKpierna.L
       position: {x: -0, y: 0.0013070235, z: 0}
@@ -712,7 +697,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: root
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

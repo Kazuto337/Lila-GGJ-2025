@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
-  m_sharedMaterial: {fileID: -1469634953858562735, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
+  m_sharedMaterial: {fileID: 7537758555310990627, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_text: 00000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
-  m_sharedMaterial: {fileID: -1469634953858562735, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
+  m_sharedMaterial: {fileID: 7537758555310990627, guid: 75072445353e7af4c8d663608c7f4fbb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2934,6 +2934,10 @@ PrefabInstance:
       propertyPath: 'hearts.Array.data[2]'
       value: 
       objectReference: {fileID: 1683238145}
+    - target: {fileID: 3803542984989064556, guid: bff3611206414ce4285ba34c1d071f01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7864151692457520026, guid: bff3611206414ce4285ba34c1d071f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

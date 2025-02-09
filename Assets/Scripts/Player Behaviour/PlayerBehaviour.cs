@@ -96,7 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
-        animator.SetBool("isShooting", true);
+        //animator.SetBool("isShooting", true);
 
         if (isLocking)
         {
@@ -167,18 +167,19 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            animator.SetBool("isMoving", true);
+            
+            //animator.SetBool("isMoving", true);
             gameObject.transform.forward = move;
         }
         else
         {
-            animator.SetBool("isMoving", false);
+            //animator.SetBool("isMoving", false);
         }
 
         // Makes the player jump
         if (jumpAction.action.triggered && jumpCondition)
         {
-            animator.SetBool("isJumping", true);
+            //animator.SetBool("isJumping", true);
             if (jumpsAmount > 1)
             {
                 StartCoroutine(WaitForSecondJump());
@@ -200,7 +201,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else
         {
-            animator.SetBool("isJumping", false);
+            //animator.SetBool("isJumping", false);
         }
     }
 
@@ -216,7 +217,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
 
-        animator.SetBool("isJumping", true);
+        //animator.SetBool("isJumping", true);
 
         Debug.Log("Boing");
 
@@ -224,7 +225,7 @@ public class PlayerBehaviour : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
         isBouncing = false;
-        animator.SetBool("isJumping", false);
+        //animator.SetBool("isJumping", false);
     }
 
     private void CheckInventoryInput()
