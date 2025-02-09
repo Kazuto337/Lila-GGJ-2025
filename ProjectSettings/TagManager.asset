@@ -12,7 +12,6 @@ TagManager:
   - Projectile
   - Destroyable
   - Bubble
-  - EnemyWeakness
   - WinCollider
   - DeathBoundary
   - Checkpoint

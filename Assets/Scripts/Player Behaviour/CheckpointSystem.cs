@@ -1,9 +1,13 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CheckpointSystem : MonoBehaviour
 {
+    Rigidbody m_rigidBody;
+    CharacterController characterController;
+
     [SerializeField] Vector3 checkpointPosition;
 
     [SerializeField] UnityEvent<int> onBoundaryFound;
@@ -11,6 +15,12 @@ public class CheckpointSystem : MonoBehaviour
     bool dealingDamage;
 
     public UnityEvent<int> OnBoundaryFound { get => onBoundaryFound;}
+
+    private void Awake()
+    {
+        m_rigidBody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
+    }
 
     private void UpdateCheckpoint(Vector3 newCheckpointPosition)
     {
@@ -38,14 +48,18 @@ public class CheckpointSystem : MonoBehaviour
         }
         dealingDamage = true;
 
+        characterController.enabled = false;
+        m_rigidBody.Sleep();
+
         yield return null;
 
         transform.position = checkpointPosition;
-
-        yield return null;
         onBoundaryFound.Invoke(1);
 
         yield return new WaitForSeconds(1f);
+
+        characterController.enabled = true;
+        m_rigidBody.WakeUp();
 
         dealingDamage = false;
     }

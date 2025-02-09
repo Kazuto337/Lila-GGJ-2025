@@ -96,7 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
-        //animator.SetBool("isShooting", true);
+        animator.SetTrigger("Shoot");
 
         if (isLocking)
         {
@@ -151,12 +151,18 @@ public class PlayerBehaviour : MonoBehaviour
         bool jumpCondition = jumpsAmount > 0 && canJump;
         bool isGrounded = controller.isGrounded;
 
+        if (controller.enabled == false)
+        {
+            return;
+        }
+
         if (isGrounded && playerVelocity.y < 0)
         {
             canJump = true;
             jumpsAmount = 2;
             playerVelocity = Vector3.zero;
         }
+
 
         Vector2 movementInputVector = movementAction.action.ReadValue<Vector2>();
         Vector3 move = new Vector3(movementInputVector.x, 0, movementInputVector.y);
@@ -167,19 +173,20 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            
-            //animator.SetBool("isMoving", true);
+            animator.SetInteger("GeneralState" , 1);
             gameObject.transform.forward = move;
         }
         else
         {
-            //animator.SetBool("isMoving", false);
+            animator.SetInteger("GeneralState", 0);
         }
 
         // Makes the player jump
         if (jumpAction.action.triggered && jumpCondition)
         {
-            //animator.SetBool("isJumping", true);
+            animator.SetTrigger("Jump");
+
+
             if (jumpsAmount > 1)
             {
                 StartCoroutine(WaitForSecondJump());
@@ -199,10 +206,6 @@ public class PlayerBehaviour : MonoBehaviour
             playerVelocity.y += gravityValue * playerMass * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
         }
-        else
-        {
-            //animator.SetBool("isJumping", false);
-        }
     }
 
     public IEnumerator Bounce()
@@ -217,15 +220,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
 
-        //animator.SetBool("isJumping", true);
-
         Debug.Log("Boing");
 
         playerVelocity.y += Mathf.Sqrt(jumpHeight + 4 * -2 * gravityValue);
         controller.Move(playerVelocity * Time.deltaTime);
 
         isBouncing = false;
-        //animator.SetBool("isJumping", false);
     }
 
     private void CheckInventoryInput()

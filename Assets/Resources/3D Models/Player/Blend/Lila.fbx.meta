@@ -63,7 +63,7 @@ ModelImporter:
       name: Armature|HacerDamage
       takeName: Armature|HacerDamage
       internalID: 5000079262935228495
-      firstFrame: 1
+      firstFrame: 0
       lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
@@ -150,7 +150,7 @@ ModelImporter:
       name: Armature|Jump
       takeName: Armature|Jump
       internalID: 1079665108409675491
-      firstFrame: 1
+      firstFrame: 8
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
